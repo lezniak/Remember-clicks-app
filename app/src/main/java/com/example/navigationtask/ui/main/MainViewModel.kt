@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.navigationtask.infrastructure.database.DatabaseClick
 import com.example.navigationtask.infrastructure.database.databaseDAO
 import com.example.navigationtask.infrastructure.model.Click
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class MainViewModel(application: Application) : AndroidViewModel(application) {
@@ -18,7 +19,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     fun add(click: Click){
-        viewModelScope.launch{
+        viewModelScope.launch(Dispatchers.IO) {
             databaseDAO.insert(click)
         }
 
