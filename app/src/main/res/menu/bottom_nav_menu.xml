@@ -6,10 +6,10 @@
         android:title="Home" />
     <item
         android:id="@+id/SecondFragment"
-        android:icon="@drawable/ic_baseline_electric_bike_24"
-        android:title="Second" />
+        android:icon="@drawable/ic_baseline_history_24"
+        android:title="History" />
     <item
         android:id="@+id/thirdFragment"
         android:icon="@drawable/ic_baseline_settings_24"
-        android:title="Third" />
+        android:title="Options" />
 </menu>

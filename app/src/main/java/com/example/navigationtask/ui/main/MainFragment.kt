@@ -7,14 +7,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
-import com.example.navigationtask.R
 import com.example.navigationtask.databinding.MainFragmentBinding
+import com.example.navigationtask.infrastructure.database.DatabaseClick
+import com.example.navigationtask.infrastructure.model.Click
 
 class MainFragment() : Fragment() {
 
     private lateinit var binding: MainFragmentBinding
     private lateinit var viewModel: MainViewModel
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -28,7 +28,7 @@ class MainFragment() : Fragment() {
         viewModel = ViewModelProvider(this)[MainViewModel::class.java]
 
         binding.button.setOnClickListener {
-            findNavController().navigate(MainFragmentDirections.actionMainFragmentToSecondFragment(name = ""))
+           viewModel.add(Click(null,it.id.toString(),"21.21.21"))
         }
 
     }
