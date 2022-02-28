@@ -13,6 +13,9 @@ interface databaseDAO {
     @Delete
     fun delete(click: Click)
 
+    @Query("Select * from click_table")
+    fun getAll(): List<Click>
+
     @Query("delete from click_table")
     fun deleteAllNotes()
 
