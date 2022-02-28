@@ -7,21 +7,18 @@ import androidx.lifecycle.viewModelScope
 import com.example.navigationtask.infrastructure.database.DatabaseClick
 import com.example.navigationtask.infrastructure.database.databaseDAO
 import com.example.navigationtask.infrastructure.model.Click
+import com.example.navigationtask.infrastructure.repository.ClickRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class MainViewModel(application: Application) : AndroidViewModel(application) {
-    private var database  = DatabaseClick.getInstance(application)
-    private lateinit var databaseDAO: databaseDAO
 
-    init {
-        databaseDAO = database.clickDao()
-    }
+    private val repository = ClickRepository(application)
 
-    fun add(click: Click){
+
+    fun addNewClick(click: Click){
         viewModelScope.launch(Dispatchers.IO) {
-            databaseDAO.insert(click)
+            repository.addClick(click)
         }
-
     }
 }

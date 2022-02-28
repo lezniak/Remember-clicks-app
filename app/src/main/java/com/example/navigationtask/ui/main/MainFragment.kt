@@ -28,7 +28,7 @@ class MainFragment() : Fragment() {
         viewModel = ViewModelProvider(this)[MainViewModel::class.java]
 
         binding.button.setOnClickListener {
-           viewModel.add(Click(null,it.id.toString(),"21.21.21"))
+           viewModel.addNewClick(Click(null,it.id.toString(),"21.21.21"))
         }
 
     }
