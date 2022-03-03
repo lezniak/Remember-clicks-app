@@ -25,6 +25,8 @@ class ClickRepository(application: Application) {
         return CoroutineScope(Dispatchers.IO).async{
             databaseDAO.getAll()
         }
-
+    }
+    fun deleteClicks(){
+        databaseDAO.deleteAllNotes()
     }
 }

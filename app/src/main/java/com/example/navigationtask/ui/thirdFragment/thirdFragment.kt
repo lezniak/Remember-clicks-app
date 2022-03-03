@@ -17,12 +17,16 @@ class thirdFragment: Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = ThirdFragmentBinding.inflate(layoutInflater)
+
         viewModel = ViewModelProvider(this)[thirdViewModel::class.java]
         return binding.root
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        binding = ThirdFragmentBinding.inflate(layoutInflater)
 
+        binding.ClearClicks.setOnClickListener {
+            viewModel.clearClicks()
+        }
     }
 }
