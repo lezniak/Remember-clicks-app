@@ -10,6 +10,8 @@ import androidx.navigation.fragment.findNavController
 import com.example.navigationtask.databinding.MainFragmentBinding
 import com.example.navigationtask.infrastructure.database.DatabaseClick
 import com.example.navigationtask.infrastructure.model.Click
+import java.text.SimpleDateFormat
+import java.util.*
 
 class MainFragment() : Fragment() {
 
@@ -26,11 +28,17 @@ class MainFragment() : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(this)[MainViewModel::class.java]
-
         binding.leftButton.setOnClickListener {
-           viewModel.addNewClick(Click(null,"Left button","21.21.21"))
+           viewModel.addNewClick(Click(null,"Left button",getDate()))
+        }
+
+        binding.rightButton.setOnClickListener {
+
+            viewModel.addNewClick(Click(null,"Right button",getDate()))
         }
 
     }
-
+    fun getDate():String {
+        return SimpleDateFormat("yyyy.MM.dd HH:mm:ss").format(Date()).toString()
+    }
 }
