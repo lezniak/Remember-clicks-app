@@ -3,3 +3,5 @@
 - MVVM
 - Navigation
 - Room
+- LiveData
+- Observers
