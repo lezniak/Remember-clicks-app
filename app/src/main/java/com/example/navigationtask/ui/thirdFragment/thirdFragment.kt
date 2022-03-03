@@ -18,10 +18,11 @@ class thirdFragment: Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = ThirdFragmentBinding.inflate(layoutInflater)
+        viewModel = ViewModelProvider(this)[thirdViewModel::class.java]
         return binding.root
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel = ViewModelProvider(this)[thirdViewModel::class.java]
+
     }
 }

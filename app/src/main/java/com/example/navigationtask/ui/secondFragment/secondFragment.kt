@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.navigationtask.databinding.SecondFragmentBinding
+import com.example.navigationtask.infrastructure.model.Click
 
 class secondFragment : Fragment() {
     lateinit var binding: SecondFragmentBinding
@@ -27,12 +28,12 @@ class secondFragment : Fragment() {
         viewModel = ViewModelProvider(this)[secondViewModel::class.java]
         layoutManager = LinearLayoutManager(requireContext())
         viewModel.clicksList.observe(viewLifecycleOwner) { it ->
-            setupRecycleView()
+            setupRecycleView(it)
         }
     }
 
-    private fun setupRecycleView(){
-        val adapter = secondAdapter(viewModel.clicksList.value!!,requireContext())
+    private fun setupRecycleView(list : List<Click>){
+        val adapter = secondAdapter(list.reversed(),requireContext())
         binding.recycleview.adapter = adapter
         binding.recycleview.layoutManager = layoutManager
     }
