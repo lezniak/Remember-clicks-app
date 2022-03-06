@@ -12,7 +12,8 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.navigationtask.databinding.MainActivityBinding
 import com.example.navigationtask.ui.main.MainFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
-
+import dagger.hilt.android.AndroidEntryPoint
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: MainActivityBinding
     private lateinit var navHostFragment: NavHostFragment

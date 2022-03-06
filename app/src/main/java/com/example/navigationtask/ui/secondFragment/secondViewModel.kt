@@ -5,10 +5,13 @@ import android.util.Log
 import androidx.lifecycle.*
 import com.example.navigationtask.infrastructure.model.Click
 import com.example.navigationtask.infrastructure.repository.ClickRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class secondViewModel(application: Application) : AndroidViewModel(application) {
+@HiltViewModel
+class secondViewModel @Inject constructor(application: Application) : AndroidViewModel(application) {
     val repository = ClickRepository(application)
 
     private var _clicksList = MutableLiveData<List<Click>>()
